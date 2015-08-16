@@ -47,7 +47,7 @@ hist(stepsbyday$dailysteps,
      col="lightblue")
 ```
 
-![](figure-html/unnamed-chunk-2-1.png) 
+![](figure/unnamed-chunk-2-1.png) 
 
 Mean daily steps = 10766  
 Median daily steps = 10765
@@ -69,10 +69,9 @@ plot(intervalsteps$interval, intervalsteps$meanintervalsteps, type="l",
      col="red")
 ```
 
-![](figure-html/unnamed-chunk-3-1.png) 
+![](figure/unnamed-chunk-3-1.png) 
 
-The 5-minute interval that on average across all the days in the dataset
-contains the maximum number of steps is: 835
+The 5-minute interval that contains the maximum number of steps, on average, across all the days in the dataset is: 835
 
 
 ## Imputing missing values
@@ -95,15 +94,19 @@ hist(stepsbydayadj$dailysteps,
      col="lightblue")
 ```
 
-![](figure-html/unnamed-chunk-4-1.png) 
+![](figure/unnamed-chunk-4-1.png) 
+
+###Strategy for Imputing Data
+1. Find all records with NA value in steps variable.
+2. Replace that step value with the mean across all days for that interval.
 
 
 Imputed Mean: 10766  
-Actual Mean: 10766  
+Mean w/o NA replacment: 10766  
 Difference:  0
 
 Imputed Median: 10766  
-Actual Median: 10765  
+Median w/o NA replacment: 10765  
 Difference: 1
 
 ## Are there differences in activity patterns between weekdays and weekends?
@@ -121,7 +124,7 @@ qplot(interval, meandailysteps, data = intervalstepsbydaytype, facets = .~daytyp
                   x = "Interval Period", y = "Total Steps"))
 ```
 
-![](figure-html/unnamed-chunk-5-1.png) 
+![](figure/unnamed-chunk-5-1.png) 
    
 Yes, there are differences between weekdays and weekends.  
 - There appears to be more consistent activity throughout the day on the weekend.  
